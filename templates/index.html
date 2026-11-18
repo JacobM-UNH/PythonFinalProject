@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Meal Tracker</h1>
+<p>Log what you ate. Enter 0 for any nutrient the meal does not have.</p>
+
+{% if errors %}
+<ul class="errors">
+  {% for message in errors %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<form method="post" action="{{ url_for('log') }}">
+  <label>Meal title
+    <input name="title" maxlength="60" value="{{ values.get('title', '') }}">
+  </label>
+  <label>Date (YYYY-MM-DD)
+    <input name="date" value="{{ values.get('date', today) }}">
+  </label>
+  <label>Calories
+    <input name="calories" value="{{ values.get('calories', '') }}">
+  </label>
+  <label>Protein (g)
+    <input name="protein" value="{{ values.get('protein', '') }}">
+  </label>
+  <label>Carbs (g)
+    <input name="carbs" value="{{ values.get('carbs', '') }}">
+  </label>
+  <label>Fat (g)
+    <input name="fat" value="{{ values.get('fat', '') }}">
+  </label>
+  <button type="submit">Log meal</button>
+</form>
+{% endblock %}

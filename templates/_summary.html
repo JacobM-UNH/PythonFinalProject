@@ -1,0 +1,11 @@
+{% from "macros.html" import left %}
+<div class="card">
+  <h2>Week of {{ summary.week }} to {{ summary.end }}</h2>
+  <p>{{ summary.count }} meal(s) logged</p>
+  <p>Calories: {{ summary.calories }}{% if summary.goal %} of {{ summary.goal.calories }} &middot; {{ left(summary.calories_left) }}{% endif %}</p>
+  <p>Protein: {{ summary.protein }} g{% if summary.goal %} of {{ summary.goal.protein }} g &middot; {{ left(summary.protein_left) }}{% endif %}</p>
+  <p>Carbs: {{ summary.carbs }} g &middot; Fat: {{ summary.fat }} g</p>
+  {% if not summary.goal %}
+  <p class="empty">No goal set. <a href="{{ url_for('goal') }}">Set one</a></p>
+  {% endif %}
+</div>

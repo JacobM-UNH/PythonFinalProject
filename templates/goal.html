@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Weekly goal{% endblock %}
+{% block content %}
+<h1>Weekly goal</h1>
+{% if current %}
+  <p>Current goal: {{ current.calories }} calories and {{ current.protein }} g protein per week.</p>
+{% else %}
+  <p class="empty">No goal set yet.</p>
+{% endif %}
+<p>A new goal starts this week and stays in place until you set another.</p>
+
+{% if errors %}
+<ul class="errors">
+  {% for message in errors %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<form method="post" action="{{ url_for('set_goal') }}">
+  <label>Calories per week
+    <input name="calories" value="{{ values.get('calories', current.calories if current else '') }}">
+  </label>
+  <label>Protein per week (g)
+    <input name="protein" value="{{ values.get('protein', current.protein if current else '') }}">
+  </label>
+  <button type="submit">Save goal</button>
+</form>
+
+<h2>Goal history</h2>
+{% for g in goals %}
+  <div class="card">
+    <h2>From week of {{ g.week }}</h2>
+    <p>{{ g.calories }} cal &middot; {{ g.protein }} g protein</p>
+  </div>
+{% else %}
+  <p class="empty">No goals yet.</p>
+{% endfor %}
+{% endblock %}

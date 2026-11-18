@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}History{% endblock %}
+{% block content %}
+<h1>Week by week</h1>
+{% for summary in weeks %}
+  {% include "_summary.html" %}
+{% endfor %}
+{% endblock %}

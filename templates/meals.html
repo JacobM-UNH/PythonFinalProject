@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}My meals{% endblock %}
+{% block content %}
+<h1>My meals</h1>
+{% for m in meals %}
+  <div class="card">
+    <h2>{{ m.title }}</h2>
+    <p>{{ m.day }} &middot; {{ m.calories }} cal &middot; {{ m.label() }}</p>
+  </div>
+{% else %}
+  <p class="empty">No meals logged yet.</p>
+{% endfor %}
+{% endblock %}

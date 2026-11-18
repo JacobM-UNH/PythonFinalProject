@@ -1,0 +1,2 @@
+{# Shows a number as "300 left" or "120 over" #}
+{% macro left(n) %}{% if n >= 0 %}{{ n }} left{% else %}{{ -n }} over{% endif %}{% endmacro %}
