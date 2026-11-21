@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Campus menu{% endblock %}
+{% block content %}
+
+<h1>Campus menu</h1>
+
+<form method="get" action="{{ url_for('menu') }}">
+  <label>Restaurant
+    <select name="restaurant">
+      <option value="">All restaurants</option>
+      {% for r in restaurants %}
+        {% if args.get('restaurant') == r %}
+        <option value="{{ r }}" selected>{{ r }}</option>
+        {% else %}
+        <option value="{{ r }}">{{ r }}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </label>
+
+  <label>Search
+    <input name="q" value="{{ args.get('q', '') }}">
+  </label>
+  <label>Max calories
+    <input name="max_calories" value="{{ args.get('max_calories', '') }}">
+  </label>
+  <label>Min protein (g)
+    <input name="min_protein" value="{{ args.get('min_protein', '') }}">
+  </label>
+  <label>Avoid allergens (comma separated)
+    <input name="avoid" value="{{ args.get('avoid', '') }}">
+  </label>
+  <button type="submit">Filter</button>
+</form>
+
+{% for i in items %}
+  <div class="card">
+    <h2>{{ i.name }}</h2>
+    <p>{{ i.restaurant }} &middot; {{ i.calories }} cal &middot;
+       P {{ i.protein }}g / C {{ i.carbs }}g / F {{ i.fat }}g</p>
+    <a href="{{ url_for('index', title=i.name, calories=i.calories,
+       protein=i.protein, carbs=i.carbs, fat=i.fat) }}">Log this</a>
+  </div>
+{% else %}
+  <p class="empty">No items match.</p>
+{% endfor %}
+{% endblock %}
