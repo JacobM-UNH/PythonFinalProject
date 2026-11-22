@@ -2,3 +2,39 @@ restaurant,name,calories,protein,carbs,fat,allergens
 The Marketplace,Grilled Chicken,250,38,2,8,
 The Marketplace,Cheese Pizza Slice,290,12,36,10,"milk,wheat"
 Halal Shack,Chicken Bowl,620,42,60,20,sesame
+The Marketplace,Omelet,290,23,4,21,egg
+Food on Demand,Pancake Platter,900,30,60,35,"egg,wheat,milk"
+Food on Demand,Breakfast Sandwich,550,32,50,25,"egg,wheat"
+The Marketplace,Teriyaki Lo Mein Bowl,490,23,84,7,"egg,gluten,wheat,soy"
+The Marketplace,Jerk Chicken Thigh,169,19,0,10,
+The Marketplace,Caribbean Red Beans and Rice,112,3,21,1,
+The Marketplace,Herb Roasted Chicken Breast,140,26,0,3,
+The Marketplace,Sweet Potato Casserole,143,1,0,0,
+The Marketplace,Cheeseburger on Bun,451,21,29,27,milk
+Food on Demand,FOD Chicken Tenders,900,40,75,30,
+Food on Demand,Chipotle Turkey Avocado Sandwich,695,37,58,33,"milk,gluten,wheat"
+Food on Demand,Pepperoni Flatbread,800,40,55,40,"milk,gluten"
+Food on Demand,Classic Chicken Caesar Salad,390,33,13,23,"wheat,gluten,soy"
+Sushi Do,Vegetable Roll,262,3,30,5,soy
+Sushi Do,California Roll,282,15,30,6,"soy,fish"
+Sushi Do,Seafood Poke Bowl,463,28,40,18,"fish,soy,sesame"
+Cappetta's,Personal Pepperoni Pizza,700,35,70,40,"wheat,milk,soy"
+Cappetta's,Personal Tomato White Pizza,700,40,90,40,"wheat,milk,soy"
+Cappetta's,Pepperoni Stuffed Bread,510,21,48,24,"wheat,milk"
+Cappetta's,Buffalo Chicken Stuffed Bread,428,26,53,13,"wheat,milk,soy"
+Cappetta's,Mozzarella Calzone,1450,22,70,15,"wheat,milk,egg,soy"
+WOW American Eats,Buffalo Chicken Mac and Cheese,760,48,55,18,"milk,gluten,eggs"
+WOW American Eats,Veggie Quesadilla,690,32,60,38,"milk,gluten"
+WOW American Eats,Santa Fe Chicken Quesadilla,990,55,75,60,"milk,gluten"
+WOW American Eats,Beyond Burger,Beyond Burger,720,40,20,18,
+WOW American Eats,Louisville Slammer Burger,840,43,55,35,"milk,wheat,gluten,egg"
+WOW American Eats,Classic Chicken Sandwich,590,30,50,32,"wheat,egg,milk"
+WOW American Eats,JBR Chicken Sandwich,880,41,63,47,"milk,wheat,gluten,egg"
+WOW American Eats,5 Piece Wings,410,30,3,25,gluten
+Halal Shack,Halal Beef and Chicken Naanarito,800,45,55,30,gluten
+Food on Demand,FOD Crispy Chicken Sandwich,650,35,60,40,"wheat,egg,milk"
+Food on Demand,Chipotle Chicken Quesadilla,990,55,75,60,"milk,gluten"
+Food on Demand,General Tso Chicken,800,35,100,30,"soy,wheat,sesame"
+The Marketplace,Acai Berry Sorbet Smoothie Blend,133,1,26,4,
+The Marketplace,Diablo Rotini and Sausage Casserette,364,13,49,14,"milk,gluten,wheat"
+The Marketplace,Roasted General Tso Cauliflower,228,4,36,9,"gluten,soy"

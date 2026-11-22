@@ -3,5 +3,25 @@
 {% block content %}
 <h1>This week</h1>
 {% include "_summary.html" %}
-<p><a href="{{ url_for('index') }}">Log a meal</a></p>
+
+{% if target %}
+<h2>Suggested For You</h2>
+<p>Aim for about {{ target[0] }} cal and  {{ target[1] }} g of protein per remaining meal.</p>
+{% for i in suggestions %}
+    <div class="card">
+        <h2>{{ i.name }}</h2>
+        <p>{{ i.restaurant }} &middot; {{ i.calories }} cal &middot; P {{ i.protein ]}g </p>
+        {% set log_url = url_for('index', title=i.name, calories=i.calories, protein=i.protein, carbs=i.carbs, fat=i.fat) %}
+        <a href="{{ log_url }}">Log this</a>
+    </div>
+{% else %}
+    <p class="empty">No menu items fit right now.</p>
+{% endfor %}
+{% else %}
+<p class="empty">Set a weekly goal to see suggestions.</p>
+{% endif %}
+
+
+<p><a href="{{ url_for('index') }}"> Log a Meal</a></p>
+
 {% endblock %}

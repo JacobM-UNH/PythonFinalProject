@@ -5,6 +5,7 @@ from flask import Flask, redirect, render_template, request, url_for
 
 from models import Tracker, week_start
 from validation import validate_goal_form, validate_meal_form
+from suggestions import suggest
 
 from menu_db import init_menu_db, restaurants, search_items
 
@@ -33,6 +34,7 @@ def _num(name, cast):
     except ValueError:
         return None
 
+#added by Jacob Miller on 11/21
 @app.route("/menu")
 def menu():
     avoid = [a.strip().lower() for a in request.args.get("avoid", "").split(",")
@@ -64,10 +66,15 @@ def history():
                            weeks=get_tracker().history(date.today()))
 
 
+#edited by Jacob Miller on 11/22
+#also changed progress.html to match these changes
 @app.route("/progress")
 def progress():
-    summary = get_tracker().summary(week_start(date.today()))
-    return render_template("progress.html", summary=summary)
+    today = date.today()
+    summary = get_tracker().summary(week_start(today))
+    target, suggestions = suggest(today, summary)
+    return render_template("progress.html", summary=summary,
+                           targets=target, suggestions = suggestions)
 
 
 @app.route("/goal")
