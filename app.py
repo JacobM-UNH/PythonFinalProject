@@ -30,9 +30,12 @@ def index():
 #added by Jacob Miller on 11/21
 def _num(name, cast):
     try:
-        return cast(request.args.get(name, ""))
+        value = cast(request.args.get(name, ""))
     except ValueError:
         return None
+    if not 0 <= value <= 100000: # changed by Darwin Sanchez on 11/23 - added a check to avoid crashes if really big number are added
+        return None
+    return value
 
 #added by Jacob Miller on 11/21
 @app.route("/menu")
@@ -72,10 +75,9 @@ def history():
 def progress():
     today = date.today()
     summary = get_tracker().summary(week_start(today))
-    target, suggestions = suggest(today, summary)
+    target, suggestions = suggest(summary, today) #eddited by Darwin Sanchez on 11/23 - arguments were swapped,
     return render_template("progress.html", summary=summary,
-                           targets=target, suggestions = suggestions)
-
+                           target=target, suggestions = suggestions)
 
 @app.route("/goal")
 def goal():

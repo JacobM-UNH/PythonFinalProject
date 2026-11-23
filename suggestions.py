@@ -12,7 +12,7 @@ def meals_left(today, week):
 def per_meal_target(summary, today):
     if summary["goal"] is None:
         return None
-    n = meals_left(today, summary["goal"])
+    n = meals_left(today, summary["week"]) # edited by Darwin Sanchez on 11/23 function should recieve a date
     calories = max(summary["calories_left"], 0) / n
     protein = max(summary["protein_left"], 0) / n
     return round(calories), round(protein, 1)
@@ -25,9 +25,11 @@ def suggest(summary, today, avoid =(), limit = 5):
 
     items = search_items(max_calories=int(cal_target * 1.25), avoid=avoid)
 
+    # edited by Darwin Sanchez on 11/23
     def score(item):
-        cal_gap = abs(item["calories_left"] - cal_target) / max(cal_target, 1)
-        protein_gap = max(protein_target - item[:protein_target], 0) / max(protein_target, 1)
+        cal_gap = abs(item["calories"] - cal_target) / max(cal_target, 1)
+        protein_gap = max(protein_target - item["protein"], 0) / max(protein_target, 1)
         return cal_gap + protein_gap
 
-    return target, sorted(items, key = score, reverse = True)[:limit]
+    #edited by Darwin Sanchez on 11/23, a lower score is a better match
+    return target, sorted(items, key = score)[:limit]

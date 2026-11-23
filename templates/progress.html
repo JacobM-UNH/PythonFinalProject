@@ -10,7 +10,7 @@
 {% for i in suggestions %}
     <div class="card">
         <h2>{{ i.name }}</h2>
-        <p>{{ i.restaurant }} &middot; {{ i.calories }} cal &middot; P {{ i.protein ]}g </p>
+        <p>{{ i.restaurant }} &middot; {{ i.calories }} cal &middot; P {{ i.protein }}g</p>
         {% set log_url = url_for('index', title=i.name, calories=i.calories, protein=i.protein, carbs=i.carbs, fat=i.fat) %}
         <a href="{{ log_url }}">Log this</a>
     </div>
