@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Campus menu{% endblock %}
+{% block title %}Campus Menu{% endblock %}
 {% block content %}
 
 <h1>Campus menu</h1>
 
-<form method="get" action="{{ url_for('menu') }}">
+<form method="get" action="{{ url_for('menu') }}" class="filters">
   <label>Restaurant
     <select name="restaurant">
       <option value="">All restaurants</option>

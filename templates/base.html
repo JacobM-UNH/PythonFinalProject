@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Meal Tracker{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}FuelForge{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <nav>
-    <a href="{{ url_for('index') }}">Log a meal</a>
-    <a href="{{ url_for('menu') }}">Campus menu</a>
-    <a href="{{ url_for('meals') }}">My meals</a>
-    <a href="{{ url_for('goal') }}">Weekly goal</a>
-    <a href="{{ url_for('progress') }}">Progress</a>
-    <a href="{{ url_for('history') }}">History</a>
-  </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="{{ url_for('index') }}">
+        <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="FuelForge">
+      </a>
+      <nav>
+        <a class="{{ 'active' if request.endpoint == 'index' }}" href="{{ url_for('index') }}">Log a meal</a>
+        <a class="{{ 'active' if request.endpoint == 'menu' }}" href="{{ url_for('menu') }}">Campus menu</a>
+        <a class="{{ 'active' if request.endpoint == 'meals' }}" href="{{ url_for('meals') }}">My meals</a>
+        <a class="{{ 'active' if request.endpoint == 'goal' }}" href="{{ url_for('goal') }}">Weekly goal</a>
+        <a class="{{ 'active' if request.endpoint == 'progress' }}" href="{{ url_for('progress') }}">Progress</a>
+        <a class="{{ 'active' if request.endpoint == 'history' }}" href="{{ url_for('history') }}">History</a>
+      </nav>
+    </div>
+  </header>
   <main>
     {% block content %}{% endblock %}
   </main>

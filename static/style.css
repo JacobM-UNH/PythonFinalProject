@@ -1,14 +1,163 @@
-body { font-family: system-ui, sans-serif; background: #f5f6fa; color: #222; margin: 0; }
-nav { background: #2d3a8c; padding: 12px 24px; }
-nav a { color: white; margin-right: 20px; text-decoration: none; }
-main { max-width: 560px; margin: 24px auto; padding: 0 16px; }
-form label { display: block; margin: 12px 0 4px; font-weight: 600; }
-input, select { width: 100%; padding: 8px; font-size: 1rem; }
-button { margin-top: 14px; padding: 8px 18px; background: #2d3a8c; color: white;
-         border: 0; border-radius: 6px; font-size: 1rem; cursor: pointer; }
-.card { background: white; padding: 12px 16px; margin: 12px 0; border-radius: 8px;
-        box-shadow: 0 1px 3px rgba(0,0,0,.15); }
-.card h2 { margin: 0 0 4px; font-size: 1.1rem; }
-.errors { background: #fde8e8; color: #9b1c1c; padding: 12px 28px; border-radius: 6px; }
+:root{
+  --brand: #d3202a;
+  --brand-dark: #a8141c;
+  --flame: #f26a21;
+  --ink: #2b2b2e;
+  --muted: #62646a;
+  --line: #e0dedb;
+  --bg: #f7f5f3;
+  --surface: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Header: */
+.site-header{
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    border-top: 5px solid var(--brand);
+}
+
+.header-inner{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 76px;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo{
+    height: 56px;
+    width: auto;
+    display: block;
+}
+
+/* Nav: */
+
+/*nav { background: #2d3a8c; padding: 12px 24px; }*/
+nav a{
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 18px;
+    padding: 28px 0 25px;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    font-size: 0.95rem;
+}
+
+nav a.hover{
+    color: var(--ink);
+}
+
+nav a.active{
+    color: var(--ink);
+    border-bottom-color: var(--flame);
+}
+
+/* Layout */
+main { max-width: 800px; margin: 32px auto; padding: 0 16px; }
+h1 { font-size: 1.6rem; margin: 0 0 8px; color: var(--ink); }
+h2 { font-size: 1.15rem; margin: 28px 0 8px; }
+p { margin: 0 0 12px; }
+a { color: var(--brand); }
+a:hover { color: var(--brand-dark); }
+
+
+/* Forms */
+form label {
+    display: block;
+    margin: 14px 0 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 9px 10px;
+    font: inherit;
+    background: var(--surface);
+    border: 1px solid #b9bec6;
+    border-radius: 4px;
+}
+
+input:focus, select:focus, button:focus-visible, a:focus-visible{
+    outline: 2px solid var(--flame);
+    outline-offset: 1px
+}
+
+button {
+  margin-top: 16px;
+  padding: 9px 20px;
+  background: var(--brand);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover{ background: var(--brand-dark) }
+
+/* Menu Filters */
+.filters{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 4px 16px 16px;
+    margin-bottom: 20px;
+}
+
+.filters button{ grid-column: 1 / -1; justify-self: start; }
+
+/* Card */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--brand);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 12px 0;
+}
+
+.card h2 { margin: 0 0 4px; font-size: 1.05rem; }
+.card p { margin: 0 0 6px; color: var(--muted); }
+.card a { font-weight: 600; font-size: 0.9rem; }
+
+/* Messages */
+.errors {
+    background: #fdf0f0;
+    border-left: 4px solid var(--brand);
+    color: #7a1021;
+    padding: 10px 16px 10px 32px;
+    border-radius: 16px 0;
+}
+
 .tag { color: #1a7f37; font-weight: 600; }
-.empty { color: #666; font-style: italic; }
+.empty { color: var(--muted); font-style: italic; }
+
+@media (max-width: 600px){
+  .header-inner { flex-direction: column; align-items: flex-start; padding-top: 10px; gap: 0; }
+  nav a { margin: 0 14px 0 0; padding: 10px 0 8px; }
+  .filters { grid-template-columns: 1fr; }
+}
